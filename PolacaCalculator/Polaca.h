@@ -21,7 +21,7 @@ public:
 	bool isOperador(char);
 	bool isFuncion(char);
 	int obtenerPrecedencia(string);
-	Pila<string> ConvertirExpresionPrefijaAPila(string);
+	Pila<string> convertirExpresionInfijaAPrefija(string);
 	Pila<double> resolver(const string&);
 	double evaluarOperacion(double, double, const string&);
 	

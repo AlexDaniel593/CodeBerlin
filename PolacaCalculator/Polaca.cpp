@@ -39,8 +39,8 @@ int Polaca::obtenerPrecedencia(string operador) {
 }
 
 
-Pila<string> Polaca::ConvertirExpresionPrefijaAPila(string expresionPrefija){
-    Pila<string> pila;
+Pila<string> Polaca::convertirExpresionInfijaAPrefija(string expresionPrefija){
+    Pila<string> pilaSalida;
     Pila<string> pilaOperadores;
     string infijoRevertido;
 
@@ -54,17 +54,17 @@ Pila<string> Polaca::ConvertirExpresionPrefijaAPila(string expresionPrefija){
         }
         else {
             if (!numero.empty()) {
-                pila.push(numero);
+                pilaSalida.push(numero);
                 numero.clear(); // Limpiar la variable para el siguiente número
             }
-            if (!numero.empty() || isOperador(c) || isFuncion(c)) {
+            if (isOperador(c) || isFuncion(c)) {
                
             }
         }
         
     }
 
-    return pila;
+    return pilaSalida;
 }
 
 
@@ -102,6 +102,7 @@ Pila<double> Polaca::resolver(const string& expresion) {
             if (c == '(') {
                 pilaOperadores.push(c);
             }
+            /*
             else if (c == ')') {
                 while (!pilaOperadores.empty() && pilaOperadores.top() != '(') {
                     double operando2 = pilaOperandos.top();
@@ -135,6 +136,7 @@ Pila<double> Polaca::resolver(const string& expresion) {
 
                 pilaOperadores.push(c);
             }
+            */
         }
     }
 
@@ -144,7 +146,8 @@ Pila<double> Polaca::resolver(const string& expresion) {
         pilaOperandos.push(valor);
     }
 
-    while (!pilaOperadores.empty()) {
+    /*
+        while (!pilaOperadores.empty()) {
         double operando2 = pilaOperandos.top();
         pilaOperandos.pop();
         double operando1 = pilaOperandos.top();
@@ -156,6 +159,9 @@ Pila<double> Polaca::resolver(const string& expresion) {
         double resultado = evaluarOperacion(operando1, operando2, operador);
         pilaOperandos.push(resultado);
     }
+     
+    */
+
 
     return pilaOperandos;
 }
