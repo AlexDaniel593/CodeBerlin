@@ -1,0 +1,3 @@
+﻿  Polaca.cpp
+x64\Debug\Stack.obj : warning LNK4042: object specified more than once; extras ignored
+  PolacaCalculator.vcxproj -> C:\Users\Det-Pc\Documents\ESPE\Estructuras de datos\Visual Studio\PolacaCalculator\x64\Debug\PolacaCalculator.exe
